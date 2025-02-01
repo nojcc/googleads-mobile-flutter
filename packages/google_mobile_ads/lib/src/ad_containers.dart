@@ -204,7 +204,7 @@ class AdRequest {
   /// Words or phrases describing the current user activity.
   final List<String>? keywords;
 
-  /// URL string for a webpage whose content matches the app’s primary content.
+  /// URL string for a webpage whose content matches the app's primary content.
   ///
   /// This webpage content is used for targeting and brand safety purposes.
   final String? contentUrl;
@@ -212,7 +212,7 @@ class AdRequest {
   /// URLs representing web content near an ad.
   final List<String>? neighboringContentUrls;
 
-  /// Non-personalized ads are ads that are not based on a user’s past behavior.
+  /// Non-personalized ads are ads that are not based on a user's past behavior.
   ///
   /// For more information:
   /// https://support.google.com/admob/answer/7676680?hl=en
@@ -718,7 +718,7 @@ class _AdWidgetState extends State<AdWidget> {
     }
 
     return Container(
-      clipBehavior: Clip.hardEdge,
+      clipBehavior: Clip.none,
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
@@ -827,7 +827,7 @@ class _FluidAdWidgetState extends State<FluidAdWidget> {
       height = _height / MediaQuery.of(context).devicePixelRatio;
     } else {
       platformView = Container(
-        clipBehavior: Clip.hardEdge,
+        clipBehavior: Clip.none,
         decoration: BoxDecoration(
           color: Colors.transparent,
         ),
@@ -844,6 +844,7 @@ class _FluidAdWidgetState extends State<FluidAdWidget> {
     return Container(
       height: max(1, height),
       width: widget.width == null ? 1 : max(1, widget.width!),
+      clipBehavior: Clip.none,
       child: platformView,
     );
   }
